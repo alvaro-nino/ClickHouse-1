@@ -13,7 +13,7 @@ EXPLAIN actions = 1, keep_logical_steps = 1
 SELECT *
 FROM users u1
 WHERE uid = (
-    SELECT sum(age)
+    SELECT sum(uid)
     FROM users u2
     WHERE u1.name = u2.name
 )
@@ -22,7 +22,17 @@ SETTINGS enable_join_runtime_filters = 0;
 SELECT *
 FROM users u1
 WHERE uid = (
-    SELECT sum(age)
+    SELECT sum(uid)
+    FROM users u2
+    WHERE u1.name = u2.name
+);
+
+SET correlated_subqueries_use_in_memory_buffer = 1;
+
+SELECT *
+FROM users u1
+WHERE uid = (
+    SELECT sum(uid)
     FROM users u2
     WHERE u1.name = u2.name
 );

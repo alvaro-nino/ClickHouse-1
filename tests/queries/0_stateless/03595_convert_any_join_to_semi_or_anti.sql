@@ -16,7 +16,17 @@ SELECT count()
 FROM users1 u1
 WHERE EXISTS (SELECT * FROM users2 u2 WHERE u1.uid != u2.uid);
 
+SELECT count()
+FROM users1 u1
+WHERE EXISTS (SELECT * FROM users2 u2 WHERE u1.uid != u2.uid);
+
+SET correlated_subqueries_use_in_memory_buffer = 1;
+
 EXPLAIN actions = 1
+SELECT count()
+FROM users1 u1
+WHERE NOT EXISTS (SELECT * FROM users2 u2 WHERE u1.uid != u2.uid);
+
 SELECT count()
 FROM users1 u1
 WHERE NOT EXISTS (SELECT * FROM users2 u2 WHERE u1.uid != u2.uid);

@@ -31,12 +31,21 @@ EXPLAIN actions = 1
 SELECT 1 FROM test AS t1
 WHERE EXISTS (
     SELECT * FROM test AS t2
-    WHERE t1.i1 = t2.i2
+    WHERE t1.i1 = t2.i1
 )
 SETTINGS  enable_join_runtime_filters = 0;
 
 SELECT 1 FROM test AS t1
 WHERE EXISTS (
     SELECT * FROM test AS t2
-    WHERE t1.i1 = t2.i2
+    WHERE t1.i1 = t2.i1
 );
+
+SET correlated_subqueries_use_in_memory_buffer = 1;
+
+SELECT 1 FROM test AS t1
+WHERE EXISTS (
+    SELECT * FROM test AS t2
+    WHERE t1.i1 = t2.i1
+);
+

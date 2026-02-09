@@ -23,3 +23,36 @@ WHERE
         number != n.x
   )
   AND n.y = 1;
+
+SELECT
+    count()
+FROM
+    t n
+WHERE
+  EXISTS (
+    SELECT
+        *
+    FROM
+        numbers(10)
+    WHERE
+        number != n.x
+  )
+  AND n.y = 1;
+
+SET correlated_subqueries_use_in_memory_buffer = 1;
+
+SELECT
+    count()
+FROM
+    t n
+WHERE
+  EXISTS (
+    SELECT
+        *
+    FROM
+        numbers(10)
+    WHERE
+        number != n.x
+  )
+  AND n.y = 1;
+
