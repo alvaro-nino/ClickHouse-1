@@ -25,7 +25,8 @@ WHERE uid = (
     SELECT sum(uid)
     FROM users u2
     WHERE u1.name = u2.name
-);
+)
+ORDER BY u1.uid DESC;
 
 SET correlated_subqueries_use_in_memory_buffer = 1;
 
@@ -35,4 +36,5 @@ WHERE uid = (
     SELECT sum(uid)
     FROM users u2
     WHERE u1.name = u2.name
-);
+)
+ORDER BY u1.uid DESC;

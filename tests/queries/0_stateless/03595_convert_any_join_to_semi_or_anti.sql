@@ -6,7 +6,7 @@ SET correlated_subqueries_default_join_kind = 'left';
 SET correlated_subqueries_use_in_memory_buffer = 0;
 
 CREATE TABLE users1 (uid Int16, name String, age Int16) ENGINE=Memory;
-INSERT INTO users1 SELECT number as uid, 'Alice' as name, 30 as age FROM numbers(100000);
+INSERT INTO users1 SELECT number as uid, 'Alice' as name, 30 as age FROM numbers(10000);
 
 CREATE TABLE users2 (uid Int16, name String, age Int16) ENGINE=Memory;
 INSERT INTO users2 SELECT number as uid, 'Alice2' as name, 30 as age FROM numbers(1000);

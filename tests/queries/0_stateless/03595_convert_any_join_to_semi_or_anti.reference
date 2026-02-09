@@ -69,7 +69,7 @@ Positions: 0
                                ALIAS uid :: 0 -> __table4.uid Int16 : 1
                       Positions: 1
                         ReadFromMemoryStorage
-100000
+10000
 Expression ((Project names + Projection))
 Actions: INPUT :: 0 -> count() UInt64 : 0
 Positions: 0

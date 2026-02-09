@@ -74,9 +74,9 @@ Positions: 3 0 1
                ALIAS age :: 2 -> __table1.age Int16 : 1
       Positions: 3 0 1
         ReadFromMemoryStorage
-1231	John	33
 8888	Alice	50
 6666	Ksenia	48
 1231	John	33
 8888	Alice	50
 6666	Ksenia	48
+1231	John	33
